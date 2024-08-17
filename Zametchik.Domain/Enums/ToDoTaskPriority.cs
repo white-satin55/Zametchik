@@ -1,6 +1,6 @@
-﻿namespace Zametchik.Domain;
+﻿namespace Zametchik.Domain.Enums;
 
-public enum NotePriority
+public enum ToDoTaskPriority
 {
     UrgentImportant = 1,
     UrgentNotImportant = 2,

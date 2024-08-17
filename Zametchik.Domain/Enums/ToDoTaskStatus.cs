@@ -1,6 +1,6 @@
-﻿namespace Zametchik.Domain;
+﻿namespace Zametchik.Domain.Enums;
 
-public enum NoteStatus
+public enum ToDoTaskStatus
 {
     Active = 1,
     Complete = 2,
