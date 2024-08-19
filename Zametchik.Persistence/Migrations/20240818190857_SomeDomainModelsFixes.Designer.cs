@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Zametchik.Persistence;
@@ -11,9 +12,11 @@ using Zametchik.Persistence;
 namespace Zametchik.Persistence.Migrations
 {
     [DbContext(typeof(ZametchikContext))]
-    partial class ZametchikContextModelSnapshot : ModelSnapshot
+    [Migration("20240818190857_SomeDomainModelsFixes")]
+    partial class SomeDomainModelsFixes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
