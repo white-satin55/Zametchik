@@ -1,8 +1,7 @@
 ﻿namespace Zametchik.Domain;
 
-public class TagEntity
-{
-    public Guid Id { get; set; }
+public class TagEntity : Entity
+{    
     public Guid UserId { get; set; }
     public int CompletedToDoTasksCount { get; set; }
     public int ExpiredToDoTasksCount { get; set; }

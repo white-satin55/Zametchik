@@ -1,8 +1,7 @@
 ﻿namespace Zametchik.Domain;
 
-public class UserStatisticEntity
-{
-    public Guid Id { get; set; }
+public class UserStatisticEntity : Entity
+{    
     public Guid UserId { get; set; }
     public TimeSpan AccountAge { get; set; }
     public int CompletedToDoTasksCount { get; set; }

@@ -2,13 +2,12 @@
 
 namespace Zametchik.Domain;
 
-public class ToDoTaskEntity
-{
-    public Guid Id { get; set; }
+public class ToDoTaskEntity : Entity
+{   
     public Guid UserId { get; set; }
     public DateTime CreationDate { get; set; }
-    public DateTime Deadline { get; set; }
-    public TimeSpan AcceptableDelay { get; set; }
+    public DateTime? Deadline { get; set; }
+    public TimeSpan? AcceptableDelay { get; set; }
     public ToDoTaskStatus Status { get; set; }
     public ToDoTaskPriority Priority { get; set; }
     public string Title { get; set; } = null!;
