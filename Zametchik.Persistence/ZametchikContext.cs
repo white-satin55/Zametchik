@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Zametchik.Domain;
 
-namespace Zametchik.DataAccess;
+namespace Zametchik.Persistence;
 
 public class ZametchikContext(DbContextOptions<ZametchikContext> options) : DbContext(options)
 {
