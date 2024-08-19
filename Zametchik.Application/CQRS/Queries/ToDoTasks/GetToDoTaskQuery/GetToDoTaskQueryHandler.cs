@@ -6,7 +6,7 @@ using Zametchik.Application.Repositories;
 using Zametchik.Domain;
 
 namespace Zametchik.Application.CQRS.Queries.ToDoTasks.GetToDoTaskQuery;
-public class GetToDoTaskQueryHandler : IRequestHandler<GetToDoTaskQuery, ToDoTaskVm>
+internal class GetToDoTaskQueryHandler : IRequestHandler<GetToDoTaskQuery, ToDoTaskVm>
 {
     private readonly IAsyncReadonlyRepository<ToDoTaskEntity> _toDoTaskEntityRepository;
 
@@ -16,10 +16,25 @@ public class GetToDoTaskQueryHandler : IRequestHandler<GetToDoTaskQuery, ToDoTas
         _toDoTaskEntityRepository = toDoTaskEntityRepository;
     }
 
-    public Task<ToDoTaskVm> Handle(GetToDoTaskQuery request, CancellationToken cancellationToken)
+    public async Task<ToDoTaskVm> Handle(GetToDoTaskQuery request, CancellationToken cancellationToken)
     {
+        var toDoTaskEntity = await _toDoTaskEntityRepository.GetByIdAsync(request.Id);
 
-
-        throw new NotImplementedException();
-    }
+        //TODO: сделать нормальный маппинг
+        return new ToDoTaskVm()
+        {
+            Title = toDoTaskEntity.Title,
+            Description = toDoTaskEntity.Description,
+            Deadline = toDoTaskEntity.Deadline,
+            AcceptableDelay = toDoTaskEntity.AcceptableDelay,
+            Priority = (ToDoTaskVmPriority)toDoTaskEntity.Priority,
+            Status = (ToDoTaskVmStatus)toDoTaskEntity.Status,
+            Tags = toDoTaskEntity.Tags
+                ?.Select(t => new ToDoTaskVmTag()
+                {
+                    Title = t.Title,
+                })
+                .ToArray()            
+        };
+    }    
 }

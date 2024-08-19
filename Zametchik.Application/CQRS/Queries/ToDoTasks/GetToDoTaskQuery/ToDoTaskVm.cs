@@ -2,16 +2,15 @@
 
 //TODO: добавить юзера, который последним изменил задачу,
 //поскольку будет возможность совместного использования заметок
-public class ToDoTaskVm
-{
-    public Guid Id { get; set; }
+internal class ToDoTaskVm
+{    
     public string Title { get; set; }
     public string Description { get; set; }
-    public DateTime Deadline { get; set; }
-    public TimeSpan AcceptableDelay { get; set; }
+    public DateTime? Deadline { get; set; }
+    public TimeSpan? AcceptableDelay { get; set; }
     public ToDoTaskVmStatus Status { get; set; }
     public ToDoTaskVmPriority Priority { get; set; }
-    public ToDoTaskVmTag[] Tags { get; set; }
+    public ToDoTaskVmTag[]? Tags { get; set; }
 }
 
 class ToDoTaskVmTag
